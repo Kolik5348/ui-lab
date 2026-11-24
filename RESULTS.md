@@ -33,8 +33,8 @@ Tool parts that I chose: Part 2 (Selenium WebDriver in Java) and Part ?
 - Step 4.3, failure message for the wrong title: + expected - actual, -'Web form', +'Web Form'
 - Step 4.6, tool and calories in the answer of POST /api/pizza: tool: Knife, calories : 650
 - Step 4.7, the line of the admin list that shows your pizza:
-- Step 4.8, run 1, result, duration and pizza name:
-- Step 4.8, run 2, result, duration and pizza name:
+- Step 4.8, run 1, result, duration and pizza name: Pass, 00:13, Lab Pizza 20261124-232353
+- Step 4.8, run 2, result, duration and pizza name: Pass, 00:12, Lab Pizza 20261124-232715
 
 ## Part B
 1.
