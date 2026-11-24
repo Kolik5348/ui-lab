@@ -25,8 +25,8 @@ Tool parts that I chose: Part 2 (Selenium WebDriver in Java) and Part ?
 - Step 2.4, the failure line for the wrong title: [ERROR]   FirstTest.webFormOpens:20 expected: <Web Form> but was: <Web form>
 - Step 2.15, QP01Test run 1, result and time: Pass, 12.931 s
 - Step 2.15, QP01Test run 2, result and time: Pass, 11.510 s
-- Step 2.20, full run 1, time and number of tests:
-- Step 2.20, full run 2, time and number of tests:
+- Step 2.20, full run 1, time and number of tests: 24.842 s, 5 tests
+- Step 2.20, full run 2, time and number of tests: 24.432 s, 5 tests
 
 ## Part B
 1.
