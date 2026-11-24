@@ -58,6 +58,48 @@ class QP01Test extends BaseTest {
         assertEquals("Knife", tools.getFirstSelectedOption().getText());
         assertTrue(vegetarian.isSelected());
         assertEquals(pizzaName, name.getDomProperty("value"));
+
+        // Step 4: ask for a pizza and check the recommendation
+        driver.findElement(By.name("pizza-please")).click();
+        wait.until(ExpectedConditions.textToBePresentInElementLocated(
+                By.id("recommendations"), "Name: " + pizzaName));
+        String tool = result("Tool: ");
+        int perSlice = Integer.parseInt(result("Calories per slice: "));
+        assertNotEquals("Knife", tool);
+        assertTrue(perSlice <= 600, "calories per slice: " + perSlice);
+
+        // Step 5: rate it without logging in
+        driver.findElement(By.name("rate-5")).click();
+        wait.until(ExpectedConditions.textToBePresentInElementLocated(
+                By.id("rate-result"), "Please log in first."));
+
+        // Step 6: log in as the admin in the same browser
+        driver.get(HOME + "admin");
+        wait.until(ExpectedConditions.presenceOfElementLocated(
+                By.id("svelte-announcer")));
+        WebElement user = driver.findElement(By.id("username"));
+        user.clear();
+        user.sendKeys("admin");
+        WebElement password = driver.findElement(By.id("password"));
+        password.clear();
+        password.sendKeys("admin");
+        driver.findElement(By.cssSelector("button[type=submit]")).click();
+        wait.until(ExpectedConditions.textToBePresentInElementLocated(
+                By.tagName("body"), "Latest pizza recommendations"));
+
+        // Step 7: find the pizza in the list, with the same tool
+        WebElement entry = wait.until(
+                ExpectedConditions.visibilityOfElementLocated(By.xpath(
+                        "//li[contains(., '" + pizzaName + "')]")));
+        assertTrue(entry.getText().contains("(tool=" + tool + ","),
+                entry.getText());
         // Add the next step above this line.
+    }
+    // Returns the rest of the result line that starts with the label.
+    private String result(String label) {
+        By line = By.xpath("//div[@id='recommendations']//p[starts-with("
+                + "normalize-space(), '" + label + "')]");
+        return driver.findElement(line).getText()
+                .substring(label.length()).trim();
     }
 }
