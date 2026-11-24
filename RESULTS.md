@@ -28,6 +28,14 @@ Tool parts that I chose: Part 2 (Selenium WebDriver in Java) and Part ?
 - Step 2.20, full run 1, time and number of tests: 24.842 s, 5 tests
 - Step 2.20, full run 2, time and number of tests: 24.432 s, 5 tests
 
+## Part 4: Cypress
+- node --version, npm --version and npx cypress version: v24.14.1, 11.11.0, 16.2.1
+- Step 4.3, failure message for the wrong title:
+- Step 4.6, tool and calories in the answer of POST /api/pizza:
+- Step 4.7, the line of the admin list that shows your pizza:
+- Step 4.8, run 1, result, duration and pizza name:
+- Step 4.8, run 2, result, duration and pizza name:
+
 ## Part B
 1.
 2.
